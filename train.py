@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 
 import joint_transforms
-from config import sbu_training_root
+from config import training_root
 from dataset import ImageFolder
 from misc import AvgMeter, check_mkdir
 from model import BDRAR
@@ -25,7 +25,7 @@ exp_name = 'BDRAR'
 # batch size of 8 with resolution of 416*416 is exactly OK for the GTX 1080Ti GPU
 args = {
     'iter_num': 3000,
-    'train_batch_size': 8,
+    'train_batch_size': 6,
     'last_iter': 0,
     'lr': 5e-3,
     'lr_decay': 0.9,
@@ -42,6 +42,7 @@ joint_transform = joint_transforms.Compose([
 val_joint_transform = joint_transforms.Compose([
     joint_transforms.Resize((args['scale'], args['scale']))
 ])
+
 img_transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
@@ -49,7 +50,7 @@ img_transform = transforms.Compose([
 target_transform = transforms.ToTensor()
 to_pil = transforms.ToPILImage()
 
-train_set = ImageFolder(sbu_training_root, joint_transform, img_transform, target_transform)
+train_set = ImageFolder(training_root, joint_transform, img_transform, target_transform)
 train_loader = DataLoader(train_set, batch_size=args['train_batch_size'], num_workers=8, shuffle=True)
 
 bce_logit = nn.BCEWithLogitsLoss().cuda()

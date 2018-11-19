@@ -105,8 +105,11 @@ class BDRAR(nn.Module):
             nn.Dropout(0.1), nn.Conv2d(8, 1, 1)
         )
 
+        # for m in self.modules():
+        #     if isinstance(m, nn.ReLU) or isinstance(m, nn.Dropout):
+        #         m.inplace = True
         for m in self.modules():
-            if isinstance(m, nn.ReLU) or isinstance(m, nn.Dropout):
+            if isinstance(m, nn.ReLU):
                 m.inplace = True
 
     def forward(self, x):

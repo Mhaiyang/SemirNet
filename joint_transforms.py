@@ -24,6 +24,7 @@ class RandomHorizontallyFlip(object):
 class Resize(object):
     def __init__(self, size):
         self.size = tuple(reversed(size))  # size: (h, w)
+        print(self.size)
 
     def __call__(self, img, mask):
         assert img.size == mask.size

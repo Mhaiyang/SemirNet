@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 
-import resnext.resnext_101_32x4d_
+import resnext.resnext_101_32x4d_ as resnext_101_32x4d_
 from .config import resnext_101_32_path
 
 
