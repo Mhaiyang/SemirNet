@@ -13,8 +13,8 @@ import numpy as np
 from PIL import Image
 import skimage.io
 
-mask_path = "/home/taylor/Mirror-Segmentation/data_640/train/mask/"
-output_path = "/home/taylor/SemirNet/data/train/mask/"
+mask_path = "/home/taylor/Mirror-Segmentation/data_640/test/mask/"
+output_path = "/home/taylor/SemirNet/data/test/mask/"
 
 masklist = os.listdir(mask_path)
 
