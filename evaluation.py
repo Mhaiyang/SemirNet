@@ -14,7 +14,6 @@ import skimage.io
 from PIL import Image
 
 
-
 def get_mask(imgname, MASK_DIR):
     """Get mask by specified single image name"""
     filestr = imgname.split(".")[0]

@@ -13,6 +13,7 @@ import evaluation
 
 
 gt_dir = "/home/taylor/SemirNet/data/test/mask"
+# predict_dir = "/home/taylor/SemirNet/data/test/dsc_results"
 predict_dir = "/home/taylor/SemirNet/ckpt/BDRAR/(BDRAR)sbu_prediction_3001"
 
 IOU = []
@@ -22,7 +23,7 @@ BER = []
 
 masklist = os.listdir(gt_dir)
 for i, maskname in enumerate(masklist):
-    print(maskname)
+    print(i, maskname)
     gt = evaluation.get_mask(maskname, gt_dir)
     predict = evaluation.get_predict_mask(maskname, predict_dir)
 
