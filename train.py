@@ -81,6 +81,7 @@ def main():
 
 
 def train(net, optimizer):
+    net.print_network()
     curr_iter = args['last_iter']
     while True:
         train_loss_record, loss_fuse_record, loss1_h2l_record = AvgMeter(), AvgMeter(), AvgMeter()

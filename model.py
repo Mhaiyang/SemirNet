@@ -112,6 +112,15 @@ class BDRAR(nn.Module):
             if isinstance(m, nn.ReLU):
                 m.inplace = True
 
+    # print the network information and parameter numbers
+    def print_network(self):
+        num_params = 0
+        for p in self.parameters():
+            if p.requires_grad:
+                num_params += p.numel()
+        # print(self)
+        print("The number of parameters: {}".format(num_params))
+
     def forward(self, x):
         layer0 = self.layer0(x)
         layer1 = self.layer1(layer0)
